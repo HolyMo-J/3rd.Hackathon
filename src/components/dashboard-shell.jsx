@@ -15,8 +15,8 @@ const currency = new Intl.NumberFormat("ko-KR", {
 
 const quickLinks = [
   { href: "/transactions", label: "거래내역 보기" },
-  { href: "/analysis", label: "소비 분석 보기" },
-  { href: "/products", label: "금융상품 비교" },
+  { href: "/analysis", label: "지출 분석 보기" },
+  { href: "/products", label: "추천 상품 보기" },
 ];
 
 export function DashboardShell() {
@@ -40,6 +40,7 @@ export function DashboardShell() {
   });
 
   const snapshot = snapshotQuery.data;
+  const serviceNote = user?.plan || "월별 자산 흐름과 예산 현황을 함께 관리하세요";
 
   useEffect(() => {
     if (meQuery.data?.user) {
@@ -56,19 +57,19 @@ export function DashboardShell() {
         <div className="absolute inset-x-0 top-0 h-32 bg-[radial-gradient(circle_at_top,_rgba(255,122,89,0.24),transparent_60%)]" />
         <div className="relative flex flex-col gap-8 lg:flex-row lg:items-end lg:justify-between">
           <div className="max-w-3xl">
-            <span className="pill">3차 해커톤 메인 대시보드</span>
+            <span className="pill">개인 금융 대시보드</span>
             <h1 className="display-font mt-4 text-5xl leading-none sm:text-6xl">
-              Pocket Ledger
+              Astera Finance
             </h1>
             <p className="text-muted mt-4 max-w-2xl text-base leading-7 sm:text-lg">
-              월별 수입과 지출, 카테고리 분석, 금융상품 확장 포인트를 한 화면에서
-              확인할 수 있는 홈 화면입니다.
+              월별 수입과 지출, 카테고리별 소비 패턴, 예산 상태를 하나의 화면에서
+              확인할 수 있도록 구성한 메인 화면입니다.
             </p>
           </div>
 
           <div className="flex flex-col items-start gap-3 sm:items-end">
             <span className="pill">
-              {user ? `${user.name} 님` : "인증 후 대시보드 활성화"}
+              {user ? `${user.name} 님의 자산 현황` : "로그인 후 개인 대시보드 이용 가능"}
             </span>
             <label className="flex items-center gap-3">
               <span className="text-sm font-medium">기준 월</span>
@@ -107,10 +108,10 @@ export function DashboardShell() {
               <div>
                 <h2 className="text-2xl font-semibold">최근 거래 요약</h2>
                 <p className="text-muted mt-1 text-sm">
-                  구현 초기에 가장 빨리 시연하기 좋은 화면입니다.
+                  최근 발생한 거래를 시간순으로 확인하고 주요 지출 흐름을 빠르게 파악할 수 있습니다.
                 </p>
               </div>
-              <span className="pill">{user.plan}</span>
+              <span className="pill">{serviceNote}</span>
             </div>
 
             <div className="mt-5 space-y-3">
@@ -122,7 +123,7 @@ export function DashboardShell() {
 
               {meQuery.isError ? (
                 <p className="text-muted rounded-2xl border border-dashed border-[var(--border)] px-4 py-8 text-center">
-                  로그인 후 실제 DB 데이터가 표시됩니다.
+                  로그인하면 개인 거래 데이터와 맞춤 요약이 표시됩니다.
                 </p>
               ) : null}
 
@@ -183,12 +184,11 @@ export function DashboardShell() {
           </section>
 
           <section className="glass-panel rounded-[1.75rem] p-5 sm:p-6">
-            <h2 className="text-2xl font-semibold">다음 구현 순서</h2>
+            <h2 className="text-2xl font-semibold">서비스 안내</h2>
             <div className="mt-5 space-y-3 text-sm leading-7 text-[var(--muted)]">
-              <p>1. Route Handlers로 인증과 거래 CRUD를 추가</p>
-              <p>2. MariaDB 테이블과 SQL 쿼리를 연결</p>
-              <p>3. JWT 인증 흐름을 붙이고 사용자별 권한 검증을 추가</p>
-              <p>4. 마지막에 GCP와 Cloudflare로 배포</p>
+              <p>월별 거래를 누적해 소비 흐름과 잔액 변화를 확인할 수 있습니다.</p>
+              <p>예산을 설정하면 카테고리별 한도를 기준으로 소비를 관리할 수 있습니다.</p>
+              <p>추천 금융상품을 저장해 개인 자금 계획에 맞는 선택지를 비교할 수 있습니다.</p>
             </div>
           </section>
         </div>

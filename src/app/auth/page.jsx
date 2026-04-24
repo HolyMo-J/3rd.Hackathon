@@ -71,16 +71,16 @@ export default function AuthPage() {
 
   return (
     <PageShell
-      eyebrow="Auth"
-      title="인증 준비 페이지"
-      description="JWT 쿠키 기반 로그인과 회원가입을 실제로 연결한 페이지입니다."
+      eyebrow="Account"
+      title="계정 및 보안"
+      description="이메일 기반 로그인과 회원가입을 통해 개인 자산 데이터와 금융 활동 내역을 안전하게 관리할 수 있습니다."
       aside={
         <section className="glass-panel rounded-[1.75rem] p-5 sm:p-6">
-          <h3 className="text-2xl font-semibold">예정 기능</h3>
+          <h3 className="text-2xl font-semibold">보안 안내</h3>
           <div className="mt-4 space-y-3 text-sm text-[var(--muted)]">
-            <p>이메일 기반 회원가입</p>
-            <p>JWT 로그인과 세션 확인</p>
-            <p>사용자별 데이터 접근 제어</p>
+            <p>이메일 기반 계정 등록과 로그인 기능을 제공합니다.</p>
+            <p>로그인 후에는 개인 거래 데이터와 저장한 금융상품만 조회할 수 있습니다.</p>
+            <p>세션이 만료되면 다시 인증을 요청해 계정 정보를 보호합니다.</p>
             <p>{user ? `${user.name} 로그인 중` : "현재 로그인 전"}</p>
           </div>
           {user ? (

@@ -54,15 +54,15 @@ export default function ProductsPage() {
     <PageShell
       eyebrow="Products"
       title="금융상품 비교"
-      description="가계부 서비스에 금융상품 추천을 확장하려 할 때 바로 이어서 붙일 수 있는 비교 페이지입니다."
+      description="예금, 적금, 투자 상품을 한곳에서 비교하고 관심 상품으로 저장해 개인 자금 계획에 맞는 선택을 도울 수 있습니다."
       aside={
         <>
           <section className="glass-panel rounded-[1.75rem] p-5 sm:p-6">
-            <h3 className="text-2xl font-semibold">확장 아이디어</h3>
+            <h3 className="text-2xl font-semibold">상품 선택 가이드</h3>
             <div className="mt-4 space-y-3 text-sm text-[var(--muted)]">
-              <p>사용자 소비 성향 기반 상품 추천</p>
-              <p>즐겨찾기 저장과 비교표 생성</p>
-              <p>가입 링크 연결</p>
+              <p>단기 자금은 예금, 목표 저축은 적금, 장기 수익은 투자 상품으로 구분해 비교할 수 있습니다.</p>
+              <p>관심 상품에 저장해 여러 상품의 금리와 특성을 다시 확인할 수 있습니다.</p>
+              <p>소비 패턴과 현금 흐름에 맞는 상품 조합을 검토할 수 있습니다.</p>
             </div>
           </section>
 
@@ -83,7 +83,7 @@ export default function ProductsPage() {
               ))}
               {savedProductsQuery.error ? (
                 <p className="text-sm text-[var(--muted)]">
-                  로그인 후 관심 상품 저장 기능을 사용할 수 있습니다.
+                  로그인하면 관심 상품 목록을 저장하고 다시 조회할 수 있습니다.
                 </p>
               ) : null}
             </div>
@@ -127,7 +127,7 @@ export default function ProductsPage() {
                   type="button"
                   onClick={() => saveMutation.mutate(product.id)}
                 >
-                  관심 상품 저장
+                  관심 목록에 추가
                 </button>
               )}
             </div>

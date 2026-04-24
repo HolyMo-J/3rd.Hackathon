@@ -63,15 +63,15 @@ export default function AnalysisPage() {
     <PageShell
       eyebrow="Analysis"
       title="소비 패턴 분석"
-      description="카테고리별 지출 규모를 빠르게 보여주는 발표용 분석 페이지입니다. 이후 차트 라이브러리 없이도 충분히 시각화가 가능합니다."
+      description="카테고리별 지출 비중과 예산 설정 현황을 함께 확인해 월별 소비 흐름을 안정적으로 관리할 수 있습니다."
       aside={
         <>
           <section className="glass-panel rounded-[1.75rem] p-5 sm:p-6">
-            <h3 className="text-2xl font-semibold">발표 포인트</h3>
+            <h3 className="text-2xl font-semibold">분석 기준</h3>
             <div className="mt-4 space-y-3 text-sm text-[var(--muted)]">
-              <p>사용자별 지출 카테고리 비교</p>
-              <p>월 예산 대비 사용률 표시</p>
-              <p>절약 제안 문구 추가 가능</p>
+              <p>카테고리별 지출 규모를 비교해 소비 집중 영역을 확인합니다.</p>
+              <p>월 예산 한도와 비교해 초과 가능성이 높은 항목을 빠르게 찾습니다.</p>
+              <p>반복 지출이 많은 항목을 중심으로 예산 조정 방향을 검토할 수 있습니다.</p>
             </div>
           </section>
 
@@ -156,7 +156,7 @@ export default function AnalysisPage() {
       </section>
 
       <section className="glass-panel rounded-[1.75rem] p-5 sm:p-6">
-        <h3 className="text-2xl font-semibold">예산 설정 현황</h3>
+        <h3 className="text-2xl font-semibold">예산 운영 현황</h3>
         <div className="mt-4 grid gap-3">
           {budgets.map((item) => (
             <div

@@ -12,7 +12,7 @@ const navigationItems = [
   { href: "/transactions", label: "거래내역" },
   { href: "/analysis", label: "분석" },
   { href: "/products", label: "금융상품" },
-  { href: "/auth", label: "인증" },
+  { href: "/auth", label: "로그인" },
 ];
 
 export function SiteHeader() {
@@ -35,9 +35,9 @@ export function SiteHeader() {
       <div className="glass-panel mx-auto flex w-full max-w-7xl flex-col gap-4 rounded-[1.75rem] px-5 py-4 lg:flex-row lg:items-center lg:justify-between">
         <div>
           <p className="text-sm font-semibold tracking-[0.18em] text-[var(--accent-strong)] uppercase">
-            Pocket Ledger
+            Astera Finance
           </p>
-          <h1 className="display-font text-2xl">3차 해커톤 금융 서비스</h1>
+          <h1 className="display-font text-2xl">자산 흐름을 한눈에 관리하는 금융 플랫폼</h1>
         </div>
 
         <nav className="flex flex-wrap gap-2">
